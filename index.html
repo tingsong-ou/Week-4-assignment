@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viz Tech 2 | Week 2</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.5.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Covid cases in the US report</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet arcu turpis. Nam accumsan rhoncus risus in fringilla. Donec lacinia dolor sed dolor semper, a posuere urna malesuada. Sed mattis ipsum vel erat tristique mattis. Suspendisse augue nisi, hendrerit non nibh id, condimentum fringilla nunc. Integer luctus imperdiet velit, in hendrerit ex pulvinar id. Sed dolor orci, ultrices vel eleifend non, congue nec ante.
+        </p>
+        <p>
+            Sed purus nibh, porta ac turpis quis, consequat lobortis urna. Mauris vel velit ornare mi imperdiet ornare vitae molestie urna. Suspendisse ut metus a odio tempus lacinia quis eu nunc. Phasellus ultricies, libero sit amet dignissim ornare, dolor arcu aliquam orci, rhoncus rhoncus arcu felis non lorem. Integer semper justo diam, vitae lacinia velit congue a. Nulla placerat non turpis et iaculis. Vivamus convallis vitae quam eu imperdiet. Pellentesque vulputate varius odio ut vestibulum. Fusce tincidunt ex vel finibus imperdiet.
+        </p>
+        <p>
+            Praesent quis faucibus ligula. Nunc varius libero id lectus luctus pellentesque. Aenean consequat erat ac lectus cursus convallis. Nulla in sapien rhoncus, efficitur quam id, egestas odio. Ut id purus eget est lacinia elementum a suscipit dolor. Fusce ornare nisl neque, at luctus dui blandit at. Aliquam gravida elementum libero et aliquam. Etiam interdum dui in accumsan consectetur. Morbi sollicitudin finibus consectetur. Donec et molestie risus.
+        </p>
+        <p>
+            Pellentesque at risus ut tellus porta ultrices. Fusce ac sem erat. Aliquam in odio vitae turpis sagittis porta ac vel risus. Aenean sapien sem, bibendum tempus dui ut, blandit accumsan ante. Aliquam facilisis leo vitae nibh vulputate, non dignissim nunc accumsan. Cras efficitur velit nec odio pulvinar finibus. Proin in velit tincidunt, commodo elit ac, ultricies quam. Aenean semper tincidunt dui, ac volutpat orci malesuada laoreet. Morbi at pellentesque mi. Donec varius mi ut mattis gravida.
+        </p>
+        <p>
+            Integer iaculis venenatis nisi, id placerat turpis tincidunt tempor. Sed tristique in erat a gravida. Maecenas quis leo ut dui convallis luctus. Aliquam justo odio, tempus at nisi a, pharetra pharetra justo. Nunc viverra neque sit amet tellus consectetur lobortis. Curabitur volutpat, purus nec elementum ornare, ipsum nulla lobortis nisl, at consectetur nibh dolor nec lacus. Nulla quis massa quam. In fermentum egestas libero. 
+        </p>
+        <svg id="bar-chart"></svg>
+        <div id="annotation-container">
+            <div class="annotation" data-state="Alabama" id="id-1">
+                <div class="box">
+                    <div class="title">Alabama</div>
+                    <div class="text">Alabama is a state in the Southeastern region of the United States bordered by Tennessee to the north; Georgia to the east; Florida and the Gulf of Mexico to the south; and Mississippi to the west. Alabama is the 30th largest by area and the 24th-most populous of the U.S. states. With a total of 1500 miles (2400 km) of inland waterways: Alabama has among the most of any state.</div>
+                </div>
+            </div>
+            <div class="annotation" data-state="Massachusetts" id="id-2">
+                <div class="box">
+                    <div class="title">Massachusetts</div>
+                    <div class="text">Massachusetts officially the Commonwealth of Massachusetts is the most populous state in the New England region of the United States. It borders on the Atlantic Ocean to the east &amp; the states of Connecticut and Rhode Island to the south &amp; New Hampshire and Vermont to the north and New York to the west. The capital of Massachusetts is Boston which is also the most populous city in New England. It is home to the Greater Boston metropolitan area. A region influential upon American history and academia and industry. Originally dependent on agriculture &amp; fishing and trade. Massachusetts was transformed into a manufacturing center during the Industrial Revolution. During the 20th century Massachusetts's economy shifted from manufacturing to services.[47] Modern Massachusetts is a global leader in biotechnology engineering higher-education finance and maritime trade.</div>
+                </div>
+            </div>
+            <div class="annotation" data-state="California" id="id-3">
+                <div class="box">
+                    <div class="title">California</div>
+                    <div class="text">What is now California was first settled by various Native Californian tribes before being explored by a number of Europeans during the 16th and 17th centuries. The Spanish Empire then claimed and colonized it.</div>
+                </div>
+            </div>
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet arcu turpis. Nam accumsan rhoncus risus in fringilla. Donec lacinia dolor sed dolor semper, a posuere urna malesuada. Sed mattis ipsum vel erat tristique mattis. Suspendisse augue nisi, hendrerit non nibh id, condimentum fringilla nunc. Integer luctus imperdiet velit, in hendrerit ex pulvinar id. Sed dolor orci, ultrices vel eleifend non, congue nec ante.
+        </p>
+        <p>
+            Sed purus nibh, porta ac turpis quis, consequat lobortis urna. Mauris vel velit ornare mi imperdiet ornare vitae molestie urna. Suspendisse ut metus a odio tempus lacinia quis eu nunc. Phasellus ultricies, libero sit amet dignissim ornare, dolor arcu aliquam orci, rhoncus rhoncus arcu felis non lorem. Integer semper justo diam, vitae lacinia velit congue a. Nulla placerat non turpis et iaculis. Vivamus convallis vitae quam eu imperdiet. Pellentesque vulputate varius odio ut vestibulum. Fusce tincidunt ex vel finibus imperdiet.
+        </p>
+        <p>
+            Praesent quis faucibus ligula. Nunc varius libero id lectus luctus pellentesque. Aenean consequat erat ac lectus cursus convallis. Nulla in sapien rhoncus, efficitur quam id, egestas odio. Ut id purus eget est lacinia elementum a suscipit dolor. Fusce ornare nisl neque, at luctus dui blandit at. Aliquam gravida elementum libero et aliquam. Etiam interdum dui in accumsan consectetur. Morbi sollicitudin finibus consectetur. Donec et molestie risus.
+        </p>
+        <p>
+            Pellentesque at risus ut tellus porta ultrices. Fusce ac sem erat. Aliquam in odio vitae turpis sagittis porta ac vel risus. Aenean sapien sem, bibendum tempus dui ut, blandit accumsan ante. Aliquam facilisis leo vitae nibh vulputate, non dignissim nunc accumsan. Cras efficitur velit nec odio pulvinar finibus. Proin in velit tincidunt, commodo elit ac, ultricies quam. Aenean semper tincidunt dui, ac volutpat orci malesuada laoreet. Morbi at pellentesque mi. Donec varius mi ut mattis gravida.
+        </p>
+        <p>
+            Integer iaculis venenatis nisi, id placerat turpis tincidunt tempor. Sed tristique in erat a gravida. Maecenas quis leo ut dui convallis luctus. Aliquam justo odio, tempus at nisi a, pharetra pharetra justo. Nunc viverra neque sit amet tellus consectetur lobortis. Curabitur volutpat, purus nec elementum ornare, ipsum nulla lobortis nisl, at consectetur nibh dolor nec lacus. Nulla quis massa quam. In fermentum egestas libero. 
+        </p>
+    </div>
+    <script src="bar-chart.js"></script>
+    <script src="scroll-actions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
