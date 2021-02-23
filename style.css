@@ -1,63 +1,82 @@
-html, body {
-    margin: 0px;
-    background: #eee;
-    font-family: sans-serif;
+html{
+    scroll-behavior: smooth;
+    font-family: monospace;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(237, 237, 237);
 }
 
-div.container {
-    margin-bottom: 200px;
+h1{
+    margin-top: 30px;
 }
 
-h1 {
-    margin-bottom: 50px;
-    width: 800px;
-    margin: auto;
-    padding-top: 50px;
-}
-p {
-    line-height: 1.3;
-    width: 800px;
-    margin: auto;
-    padding-top: 50px;
-}
-
-svg {
-    margin: auto;
-    padding-top: 50px;
-}
-
-g.axis-x > g.tick > text {
-    transform: translate(17px, 22px) rotateZ(60deg);
-}
-    
-rect {
-    fill: darkolivegreen;
-}
-
-div.annotation {
-    height: 100vh;
-    width: 100vw;
-    background: transparent;
-    left: 0px;
-    display: flex;
-    align-items: center;
-}
-
-div.annotation > div.box {
-    position: absolute;
-    width: 30vw;
-    margin-left: 10vw;
-    background: white;
-    box-shadow: -2px 2px 4px #666;
-    padding: 15px;
-}
-
-div.box > div.title {
-    font-size: 20px;
-    font-weight: bold;
+h2{
+    padding: none;
     margin-bottom: 10px;
 }
-div.box > div.text {
-    font-size: 14px;
-    line-height: 1.3;
+
+p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+a{
+    margin-top: 5px;
+    color: rgb(193, 67, 65);
+}
+
+rect{
+    fill:rgb(49, 63, 123);
+}
+
+.block{
+    display: flex;
+    align-items: center;
+    height: 65vh;
+    width: 100%;
+}
+
+.stateBanner{
+    border: 0.5px solid rgb(120, 120, 120);
+    box-shadow: 3px 3px rgb(120, 120, 120);
+    background: rgb(247, 247, 247);
+    padding-left: 20px;
+    padding-right: 40px;
+    padding-top: 5px;
+    padding-bottom: 30px;
+}
+
+.title{
+    text-align: center;
+    position: sticky;
+    top: 40px;
+}
+
+.column{
+    float:left;
+}
+
+.right{
+    width:70%;
+}
+
+.left{
+    max-width: 350px;
+    width:30%;
+}
+
+.axis{
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.alert{
+    fill:rgb(208, 77, 68);
+    font-size: 13px;
+}
+
+.value{
+    fill:rgb(118, 118, 118);
 }
