@@ -1,6 +1,6 @@
 let covidData, stateInfo;
 const chartSize = {w: 800, h: 750};
-const margin = {t: 30, l: 110, b: 30, r: 45};
+const margin = {t: 50, l: 120, b: 40, r: 45};
 const svg = d3.select('.chart').append('svg');
 const containerG = svg.append('g');
 const dispatch = d3.dispatch('changeState');

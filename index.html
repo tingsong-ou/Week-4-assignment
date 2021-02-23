@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Week 4 | Interactive Barchart</title>
+    <title>Week 4 - Scroll Triger</title>
     <link rel='stylesheet' type='text/css' href='style.css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.5.0/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
@@ -12,12 +12,12 @@
 <body>
     <div class='title'>
         <h1>COVID-19 Cases in U.S.</h1>
-        <h3>Report Date: Feb.8, 2021</h3>
+        <h3>Data: Feb.8, 2021</h3>
     </div>
 
     <div class='row'>
         <div class='banners column left'>
-            <p>please scroll down to check data in different states</p>
+            <p id='hint'>please scroll down to check data in different states</p>
         </div>
         <div class='chart column right'></div>
     </div>

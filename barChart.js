@@ -1,7 +1,10 @@
 class barChart{
-    constructor(){}
+    constructor(){
+        this.duration = 1000; //controlling the overall duration
+    }
 
-    //SETTERS
+//--------SETTERS--------
+
     setData(data){
         this.data = data;
         return this;
@@ -44,6 +47,7 @@ class barChart{
         return this;
     }
 
+//--------CLASS FUNCTIONS--------
 
     //DRAWING BARCHART
     draw(){ 
@@ -56,18 +60,19 @@ class barChart{
             let countyCount = filteredData.length;
             filteredData = filteredData.slice(0, 35);
 
-            let t = this.selection.selectAll('.alert').data([1]);
+            let alert = this.selection.selectAll('.alert').data([1]);
 
-            t.join('text')
-                .attr('x', 200)
-                .attr('y', 675)
+            alert.join('text')
+                .attr('x', this.chartSize.w/2)
+                .attr('y', -8)
                 .attr('class', 'alert')
+                .style('text-anchor','middle')
                 .transition()
-                .duration(1000)
+                .duration(this.duration)
                 .tween('text', function(){
                     let total = d3.interpolate(0, countyCount)
                     return function(t){
-                        d3.select(this).text(`*This state has ${Math.round(total(t))} counties, here only shows 35 of them`);
+                        d3.select(this).text(`*This state has ${Math.round(total(t))} counties; this chart only lists the top 35 cases confirmed counties.`);
                     }
                 });
         }else{
@@ -100,12 +105,12 @@ class barChart{
             .attr('width', 0)
             .attr('height', scaleY.bandwidth())
             .transition()
-            .duration(1000)
+            .duration(this.duration)
             .attr('width', d => scaleX(d.cases));
 
         rectSelection
             .transition()
-            .duration(1000)
+            .duration(this.duration)
             .attr('x', 0)
             .attr('y', d => scaleY(d.county))
             .attr('width', d => scaleX(d.cases))
@@ -113,12 +118,13 @@ class barChart{
 
         rectSelection.exit()
             .transition()
-            .duration(1000)
+            .duration(this.duration)
             .attr('width', 0)
             .remove();
 
         this.drawAxes(scaleX,scaleY);
         this.drawValues(filteredData, scaleX, scaleY);
+        this.drawLabels();
     }
 
     //drawing axes
@@ -139,7 +145,7 @@ class barChart{
         axisG
             .attr('transform', `translate(0, ${this.chartSize.h})`)
             .transition()
-            .duration(1000)
+            .duration(this.duration)
             .call(axis);
     }
 
@@ -153,7 +159,7 @@ class barChart{
             .classed('axis-y', true);
         
         axisG.transition()
-            .duration(1000)
+            .duration(this.duration)
             .call(axis);
     }
 
@@ -163,10 +169,10 @@ class barChart{
             .data(data);
         
         values.join('text')
-            .attr('y', d => scaleY(d.county) + scaleY.bandwidth() / 2)
+            .attr('y', d => scaleY(d.county) + scaleY.bandwidth() / 2 + 4)
             .attr('class', 'value')
             .transition()
-            .duration(1000)
+            .duration(this.duration)
             .attr('x', d => scaleX(d.cases) + 5)
             .tween('text', function(d){
                 let currentValue = d.cases;
@@ -177,5 +183,34 @@ class barChart{
             });
         
         
+    }
+
+    //placing title and labels
+    drawLabels(){
+        let labelX = this.selection.selectAll('.label-x').data([1]);
+        let labelY = this.selection.selectAll('.label-y').data([1]);
+        let title = this.selection.selectAll('.chartTitle').data([1]);
+
+        labelX.join('text')
+            .attr('x', this.chartSize.w/2)
+            .attr('y',this.chartSize.h + this.margin.b)
+            .attr('class', 'label label-x')
+            .text('Cases Confirmed')
+        
+        labelY.join('text')
+            .attr('x', -this.chartSize.h/2)
+            .attr('y', -this.margin.l*4/5)
+            .attr('transform', 'rotate(-90)')
+            .attr('class', 'label label-y')
+            .text('Counties')
+        
+        title.join('text')
+            .attr('x', this.chartSize.w/2)
+            .attr('y', -this.margin.t/2)
+            .style('text-anchor','middle')
+            .style('font-size', '16px')
+            .style('font-weight', '800')
+            .attr('class', 'chartTitle')
+            .text(`Cases Confirmed in ${this.state}`)
     }
 }
